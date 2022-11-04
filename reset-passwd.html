@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Titan Community Bank | Password Reset</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Reset Password form</h1>
+  </header>
+
+  <div class=fullscreen-container>
+
+    <form id=registration-form>
+
+      <div class=form-info>
+
+        <label for=email>Email</label>
+        <input type=email id=email name=email>
+        <span id=email-error>*</span>
+
+        <label for=passwd>Password</label>
+        <input type=password id=passwd name=passwd>
+        <span id=passwd-error>*</span>
+
+        <label for=passwd-check>Re-enter password</label>
+        <input type=password id=passwd-check name=passwd-check>
+        <span id=passwd-check-error>*</span>
+
+      </div>
+
+      <input type=button id=reset-passwd name=reset-passwd value="Reset Password">
+
+    </form>
+
+  </div>
+
+  <script src=js/reset-passwd.js></script>
+
+</body>
+
+</html>
