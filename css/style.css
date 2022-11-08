@@ -45,13 +45,15 @@ footer dt:after { content: ":"; }
 
 .form-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 1em 2rem;
 }
 
 .form-info label { text-align: right; }
 .form-info label:after { content: ":"; }
+
+#registration-info span { color: red; }
 
 .tos-wrapper {
   margin: auto;
