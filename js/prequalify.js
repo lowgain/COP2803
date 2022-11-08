@@ -8,33 +8,96 @@ window.onload = function() {
 function validateInput() {
  
   let validity = true;
+  let header = "";
+  const errorMsg = "Please review your input and fill in all fields";
+  let html = "";
 
-  function isEmpty(field, errorField) {
-    if ($(field).value == "") {
-      $(errorField).firstChild.nodeValue = "Field is required.";
-      validity = false;
-    } else { $(errorField).firstChild.nodeValue = "" }
-  };
+  let email = $('email').value;
+  let emailCheck = $('email-check').value;
+  let firstName = $('first-name').value;
+  let lastName = $('last-name').value;
+  let city = $('city').value;
+  let state = $('state').value;
+  let zipCode = $('zip-code').value;
+  let income = $('income').value;
+  let ssn = $('ssn').value;
+  let tosCheck = $('tos').checked;
 
-  isEmpty("email", "email-error");
-  isEmpty("email-check", "email-check-error");
-  isEmpty("first-name", "first-name-error");
-  isEmpty("last-name", "last-name-error");
-  isEmpty("city", "city-error");
-  isEmpty("state", "state-error");
-  isEmpty("zip-code", "zip-error");
-  isEmpty("income", "income-error");
-  isEmpty("ssn", "ssn-error");
-
-  if ($("email-check").value != $("email").value) {
-    $("email-check-error").firstChild.nodeValue = "Emails do not match";
+  if (email == "") {
+    header = errorMsg;
+    email = "<span>Field is required</span>"
     validity = false;
   };
 
-  if ($("tos").checked == false) {
-    $("tos-error").firstChild.nodeValue = "Please accept terms of service";
+  if (firstName == "") {
+    header = errorMsg;
+    firstName = "<span>Field is required</span>"
     validity = false;
-  } else { $("tos-error").firstChild.nodeValue = "" }
+  };
+
+  if (lastName == "") {
+    header = errorMsg;
+    lastName = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (city == "") {
+    header = errorMsg;
+    city = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (state == "") {
+    header = errorMsg;
+    state = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (zipCode == "") {
+    header = errorMsg;
+    zipCode = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (income == "") {
+    header = errorMsg;
+    income = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (ssn == "") {
+    header = errorMsg;
+    ssn = "<span>Field is required</span>"
+    validity = false;
+  };
+
+  if (emailCheck != email) {
+    header = errorMsg;
+    emailCheck = "<span>Emails don't match</span>";
+    validity = false;
+  };
+
+  if (tosCheck == false) {
+    header = errorMsg;
+    tosCheck = "<span>Please accept terms of service</span>";
+    validity = false;
+  };
+
+  if ( header == errorMsg ) {
+    $("registration-header").firstChild.nodeValue = header;
+    html += `<tr><td>Email:</td><td>${email}</td></tr>`;
+    html += `<tr><td>Email Check:</td><td>${emailCheck}</td></tr>`;
+    html += `<tr><td>First Name:</td><td>${firstName}</td></tr>`;
+    html += `<tr><td>Last Name:</td><td>${lastName}</td></tr>`;
+    html += `<tr><td>City:</td><td>${city}</td></tr>`;
+    html += `<tr><td>State:</td><td>${state}</td></tr>`;
+    html += `<tr><td>Zip Code:</td><td>${zipCode}</td></tr>`;
+    html += `<tr><td>Income:</td><td>${income}</td></tr>`;
+    html += `<tr><td>SSN:</td><td>${ssn}</td></tr>`;
+    html += `<tr><td>TOS:</td><td>${tosCheck}</td></tr>`;
+  };
+
+  $('registration-info').innerHTML = html;
 
   return validity;
 
