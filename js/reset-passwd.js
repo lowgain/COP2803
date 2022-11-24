@@ -7,16 +7,15 @@ function validateInput() {
  
   let validity = true;
 
-  function isEmpty(field, errorField) {
+  function isEmpty(field) {
     if ($(field).value == "") {
-      $(errorField).firstChild.nodeValue = "Field is required.";
       validity = false;
-    } else { $(errorField).firstChild.nodeValue = "" }
+    };
   };
 
-  isEmpty('email', 'email-error');
-  isEmpty('passwd', 'passwd-error')
-  
+  isEmpty('email');
+  isEmpty('passwd')
+ 
   return validity;
 };
 
@@ -24,7 +23,6 @@ function resetPasswd() {
   if (validateInput()) {
     let user = localStorage.getItem($('email').value);
     if (user == null) {
-      $('email-error').firstChild.nodeValue = "This user does not exist."
       return
     };
     location.href = "login.html";

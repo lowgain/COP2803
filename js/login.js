@@ -9,15 +9,14 @@ function validateInput() {
  
   let validity = true;
 
-  function isEmpty(field, errorField) {
+  function isEmpty(field) {
     if ($(field).value == "") {
-      $(errorField).firstChild.nodeValue = "Field is required.";
       validity = false;
-    } else { $(errorField).firstChild.nodeValue = "" };
+    };
   };
 
-  isEmpty('email','email-error');
-  isEmpty('passwd','passwd-error');
+  isEmpty('email');
+  isEmpty('passwd');
 
   return validity;
 };

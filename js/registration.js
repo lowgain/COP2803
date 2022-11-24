@@ -9,19 +9,17 @@ function validateInput() {
  
   let validity = true;
 
-  function isEmpty(field, errorField) {
+  function isEmpty(field) {
     if ($(field).value == "") {
-      $(errorField).firstChild.nodeValue = "Field is required.";
       validity = false;
-    } else { $(errorField).firstChild.nodeValue = "" }
+    };
   };
 
-  isEmpty("email","email-error");
-  isEmpty("passwd","passwd-error");
-  isEmpty("passwd-check","passwd-check-error");
+  isEmpty("email");
+  isEmpty("passwd");
+  isEmpty("passwd-check");
 
   if ($('passwd').value != $('passwd-check').value) {
-    $('passwd-check-error').firstChild.nodeValue = "Passwords do not match";
     validity = false;
   };
  
