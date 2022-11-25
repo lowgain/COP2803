@@ -33,5 +33,5 @@ function login() {
         return
     };
 
-    location.href = "home.html"
+    location.href = "accounts.html"
 };
